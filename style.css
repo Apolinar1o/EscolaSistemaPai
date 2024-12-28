@@ -24,11 +24,31 @@
 body {
     height: 100vh;
     background-color: var(--body-color);
+    transition: var(--tran-04);
+}
+body.dark {
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-ilght: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+
+}
+.sidebar.close {
+    width: 100px;
+}
+.sidebar.close .text{
+    opacity: 0;
 }
 .sidebar .text {
     font-size: 16px;
     font-weight: 500;
     color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1
+    ;
 }
 .sidebar .image {
     min-width: 60px;
@@ -43,6 +63,7 @@ body {
     width: 250px;
     padding: 10px 14px;
     background: var(--sidebar-color);
+    transition: var(--tran-05);
 }
 
 .sidebar li {
@@ -93,7 +114,7 @@ header .image-text .header-text {
 .header-text .profession {
     margin-top: -2px;
 }
-.sidebar header .toogle {
+.sidebar header .toggle {
     position: absolute;
     top: 50%;
     right: -25px;
@@ -110,6 +131,14 @@ header .image-text .header-text {
 }
 .sidebar .search-box {
     background: var((var(--primary-color-ilght)));
+    border-radius: 6px;
+}
+.sidebar.close header .toggle {
+    transform: translateY(-50%) rotate(100deg);
+}
+body.dark .sidebar header .toggle {
+    color: var(--text-color);
+    transform: rotate(100deg);
 }
 .search-box, input {
     height: 100%;
@@ -137,6 +166,10 @@ header .image-text .header-text {
 .sidebar li a:hover .text {
     color: var(--sidebar-color);
 }
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+    color: var(--text-color);
+}
 
 
 .sidebar .menu-bar {
@@ -148,18 +181,26 @@ header .image-text .header-text {
 
 .menu-bar .mode {
     background: var(--primary-color-ilght);
+    border-radius: 6px;
+    position: relative;
 }
 .menu-bar .mode .moon-sun{
     display: flex;
     align-items: center;
     height: 50px;
-    width: 50px;
+    width: 60px;
 }
 .menu-bar .mode i{
     position: absolute;
 }
 .menu-bar .mode i.sun{
     opacity: 0;
+}
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
 }
 
 .menu-bar .mode .toggle.switch{
@@ -190,5 +231,9 @@ header .image-text .header-text {
     transform: translateY(-50%);
     cursor: pointer;
     background: var(--sidebar-color);
+    transition: var(--tran-03);
    
+}
+body.dark .switch::before {
+    left: 24px;
 }

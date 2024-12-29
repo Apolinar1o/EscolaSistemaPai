@@ -25,6 +25,7 @@ body {
     height: 100vh;
     background-color: var(--body-color);
     transition: var(--tran-04);
+
 }
 body.dark {
     --body-color: #18191a;
@@ -64,6 +65,7 @@ body.dark {
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
+    z-index: 100;
 }
 
 .sidebar li {
@@ -118,7 +120,7 @@ header .image-text .header-text {
     position: absolute;
     top: 50%;
     right: -25px;
-    transform: translateY(-50%);
+ 
     height: 25px;
     width: 25px;
     background: var(--primary-color);
@@ -128,18 +130,21 @@ header .image-text .header-text {
     border-radius: 50%;
     color: var(--sidebar-color);
     font-size: 22px;
+    transition: var(--tran-02);
+    transform: translateY(-50%) rotate(180deg);
 }
 .sidebar .search-box {
     background: var((var(--primary-color-ilght)));
     border-radius: 6px;
 }
 .sidebar.close header .toggle {
-    transform: translateY(-50%) rotate(100deg);
+    transform: translateY(-50%);
 }
 body.dark .sidebar header .toggle {
     color: var(--text-color);
-    transform: rotate(100deg);
+    transition: var(--tran-02);
 }
+
 .search-box, input {
     height: 100%;
     width: 100%;
@@ -236,4 +241,25 @@ body.dark .menu-bar .mode i.sun{
 }
 body.dark .switch::before {
     left: 24px;
+}
+
+.home {
+    height: 100vh;
+    left: 250px;
+    width: calc(100%-250px);
+    display: block;
+    position: relative;
+}
+
+
+.sidebar.close ~ .home {
+    left: 100px;
+    width: calc(100%-100px);
+}
+
+.home .text {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 8px 40px;
 }

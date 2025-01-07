@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Registros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        section {
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        section h2 {
+            margin-top: 0;
+        }
+
+        input, select, button {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #registros ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #registros li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gerenciamento de Registros</h1>
+
+    <!-- Buscar -->
+    <section id="buscar">
+        <h2>Buscar Registros</h2>
+        <label for="entidadeBuscar">Entidade:</label>
+        <select id="entidadeBuscar">
+            <option value="aluno">Aluno</option>
+            <option value="responsavel">Responsável</option>
+        </select>
+        <button onclick="buscarRegistros()">Buscar</button>
+        <div id="registros">
+            <h3>Registros Encontrados:</h3>
+            <ul id="lista-registros"></ul>
+        </div>
+    </section>
+
+    <!-- Adicionar -->
+    <section id="adicionar">
+        <h2>Adicionar Registro</h2>
+        <label for="entidadeAdicionar">Entidade:</label>
+        <select id="entidadeAdicionar">
+            <option value="aluno">Aluno</option>
+            <option value="responsavel">Responsável</option>
+        </select>
+        <input type="text" id="nome" placeholder="Nome">
+        <input type="text" id="endereco" placeholder="Endereço">
+        <input type="text" id="cpf" placeholder="CPF">
+        <input type="text" id="sexo" placeholder="Sexo">
+        <button onclick="adicionarRegistro()">Adicionar</button>
+    </section>
+
+    <!-- Atualizar -->
+    <section id="atualizar">
+        <h2>Atualizar Registro</h2>
+        <label for="entidadeAtualizar">Entidade:</label>
+        <select id="entidadeAtualizar">
+            <option value="aluno">Aluno</option>
+            <option value="responsavel">Responsável</option>
+        </select>
+        <input type="text" id="campoAtualizar" placeholder="Campo a ser alterado (Ex: endereco)">
+        <input type="text" id="valorAtualizar" placeholder="Novo valor">
+        <input type="text" id="cpfAtualizar" placeholder="CPF do registro">
+        <button onclick="atualizarRegistro()">Atualizar</button>
+    </section>
+
+    <!-- Deletar -->
+    <section id="deletar">
+        <h2>Deletar Registro</h2>
+        <label for="entidadeDeletar">Entidade:</label>
+        <select id="entidadeDeletar">
+            <option value="aluno">Aluno</option>
+            <option value="responsavel">Responsável</option>
+        </select>
+        <input type="text" id="cpfDeletar" placeholder="CPF do registro a ser deletado">
+        <button onclick="deletarRegistro()">Deletar</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

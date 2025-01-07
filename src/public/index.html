@@ -1,58 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Registros</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
-
-        section {
-            margin-bottom: 40px;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        section h2 {
-            margin-top: 0;
-        }
-
-        input, select, button {
-            margin: 5px 0;
-            padding: 10px;
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        #registros ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        #registros li {
-            background: #f4f4f4;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -66,10 +18,11 @@
             <option value="aluno">Aluno</option>
             <option value="responsavel">Responsável</option>
         </select>
-        <button onclick="buscarRegistros()">Buscar</button>
+        <button id="" onclick="buscarRegistros()">Buscar</button>
         <div id="registros">
             <h3>Registros Encontrados:</h3>
             <ul id="lista-registros"></ul>
+            
         </div>
     </section>
 
@@ -81,10 +34,17 @@
             <option value="aluno">Aluno</option>
             <option value="responsavel">Responsável</option>
         </select>
-        <input type="text" id="nome" placeholder="Nome">
-        <input type="text" id="endereco" placeholder="Endereço">
-        <input type="text" id="cpf" placeholder="CPF">
-        <input type="text" id="sexo" placeholder="Sexo">
+        <input type="text" class="responsavel" id="Rnome" placeholder="Nome">
+        <input type="text" class="responsavel" id="Rendereco" placeholder="Endereço">
+        <input type="text" class="responsavel" id="Rcpf" placeholder="CPF">
+        <input type="text" class="responsavel" id="Rsexo" placeholder="Sexo">
+
+        <input type="text" class="aluno" id="Anome" placeholder="Nome">
+        <input type="text" class="aluno" id="Aendereco" placeholder="Endereço">
+        <input type="text" class="aluno" id="ASexo" placeholder="Sexo">
+        <input type="text" class="aluno" id="dataNascimento" placeholder="data de Nascimento ex: 2005-02-01">
+        <input type="text" class="aluno" id="resp_id" placeholder="responsavel id">
+      
         <button onclick="adicionarRegistro()">Adicionar</button>
     </section>
 
@@ -110,7 +70,7 @@
             <option value="aluno">Aluno</option>
             <option value="responsavel">Responsável</option>
         </select>
-        <input type="text" id="cpfDeletar" placeholder="CPF do registro a ser deletado">
+        <input type="text" id="nomeDeletar" placeholder="nome do registro a ser deletado">
         <button onclick="deletarRegistro()">Deletar</button>
     </section>
 

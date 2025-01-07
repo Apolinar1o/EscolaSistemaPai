@@ -29,16 +29,12 @@ async function buscarRegistros() {
 }
 async function adicionarRegistro() {
     const entidadeAdicionar = document.querySelector("#entidadeAdicionar").value;
-
-
-        
-
         
         try {
             if(entidadeAdicionar == "aluno") {
                 const dataNascimento = document.querySelector("#dataNascimento").value;
                 const Anome = document.querySelector("#Anome").value;
-                const Asexo = document.querySelector("#Asexo").value;
+                const Asexo = document.querySelector("#Asexo").value;    
                 const Aendereco = document.querySelector("#Aendereco").value;
                 const resp_id = document.querySelector("#resp_id").value;
                 const res = await fetch(`${url}/insert/${entidadeAdicionar}`, {

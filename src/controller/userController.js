@@ -33,9 +33,10 @@ exports.Cadastro = async (req, res) => {
 
 exports.Login = async (req, res) => {
     try {
+        
         const connection = await db();
         const {login, password, dataAcesso} = req.body;
-
+     
         if(!login || login.length < 1) {
             return res.status(500).json({"error": "Email inválido"});  
         }
@@ -45,11 +46,20 @@ exports.Login = async (req, res) => {
         if(!dataAcesso || dataAcesso.length < 1) {
             return res.status(500).json({"error": "Data inválido"});  
         }
-       
-        const create = await connection.query(`insert into aluno (nome, endereco, sexo, resp_id, dataNascimento) values ("${nome}", "${endereço}","${sexo}","${resp_id}","${dataNascimento}")`);
-        if(create) {
-            return res.status(200).json(create);
+     
+        const email = await connection.query(`select * from usuario where email = "${login}"`);
+
+
+        const senha = await connection.query(`select * from usuario where senha = "${password}"`);
+
+        console.log(email, senha);
+        if(!email || email != login || !senha || senha != password){
+            return res.status(500).json({"error": "Email ou senha incorretos"});  
         }
+        await connection.query(`UPDATE usuario SET ultimoAcesso = '${dataAcesso}' WHERE email = ${login}`);
+        return res.status(200).json({ mensagem: 'Login bem-sucedido'});
+        
+          
     } catch (error) {
         return res.status(500).json({"error": error.message});  
     }

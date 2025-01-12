@@ -10,8 +10,8 @@ loginB.addEventListener("click", async  () => {
        
 
         try {
-            const password = document.querySelector("#password");
-            const email = document.querySelector("#email");
+            const password = document.querySelector("#password").value;
+            const email = document.querySelector("#email").value;
             const dataAtual = new Date()
             const dataFormatada = dataAtual.toISOString().slice(0, 19).replace('T', ' ');
        
@@ -30,7 +30,6 @@ loginB.addEventListener("click", async  () => {
             alert("logado com sucesso");
 
         } catch (error) {
-            alert(error);
             return res.status(500).json({"error": error})
         }
 

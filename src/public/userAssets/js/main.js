@@ -27,7 +27,15 @@ loginB.addEventListener("click", async  () => {
                     dataAcesso: dataFormatada
                 }),
             });
-            alert("logado com sucesso");
+
+            if (res.ok) {
+                const responseData = await res.json(); 
+                alert("Logado com sucesso!");
+            } else {
+                const errorData = await res.json();
+                alert(`Erro: ${errorData.error || "Algo deu errado"}`);
+            }
+        
 
         } catch (error) {
             return res.status(500).json({"error": error})

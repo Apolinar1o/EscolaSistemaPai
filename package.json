@@ -1,9 +1,21 @@
 {
   "name": "escolasistemapai",
   "version": "1.0.0",
+  "build": [{
+    "src": "app.js",
+    "use": "@vercel/node"
+  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
+    }
+  ],
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",

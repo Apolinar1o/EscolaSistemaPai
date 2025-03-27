@@ -23,3 +23,4 @@ const dbConnection = require("./src/datebase/db.js");
         } )
 
 
+module.exports = app;

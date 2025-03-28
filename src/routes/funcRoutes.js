@@ -1,8 +1,11 @@
+
+
+console.log("111111111111111111111111111")
 const express = require("express");
 const router = express.Router();
 const controller = require("../controller/crudController.js");
 const authorization = require("../middleware/validarTokenJwt.js")
-
+console.log("111111111111111111111111111")
 
 router.get("/find/:entidade", authorization, controller.find)
 // router.get("/find", controller.findOne)
